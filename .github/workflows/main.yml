@@ -23,7 +23,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --filter "TestCategory=Unit" --logger "nunit;LogFilePath=TestResult/TestResult-{assembly}.xml" /p:CollectCoverage=true /p:CoverletOutputFormat=\"opencover\" /p:CoverletOutput=TestResult/
     - name: Sonar End
-      run: dotnet sonarscanner end
+      run: dotnet sonarscanner end  /d:sonar.verbose=true /o:raiffeisen-dgtl /k:Raiffeisen-DGTL_ViennaNET /d:sonar.login=${{ secrets.SONAR_TOKEN }} /d:sonar.host.url=https://sonarcloud.io
       
     #- name: SonarCloud Scan
     #  uses: sonarsource/sonarcloud-github-action@master
