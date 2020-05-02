@@ -15,7 +15,9 @@ jobs:
     - name: SonarScanner install
       run: dotnet tool install --global dotnet-sonarscanner
     - name: SonarScanner run
-      run: dotnet sonarscanner begin /k:Raiffeisen-DGTL_ViennaNET \
+      run: dotnet sonarscanner begin 
+        /k:Raiffeisen-DGTL_ViennaNET \
+        /d:sonar.branch.name=master
         /d:sonar.login=${{ secrets.SONAR_TOKEN }} \
         /d:sonar.host.url=https://sonarcloud.io \
         /d:sonar.verbose=true \
